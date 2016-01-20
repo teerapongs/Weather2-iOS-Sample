@@ -7,22 +7,16 @@
 //
 
 import UIKit
-import CoreData
 
 class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
     var titleName = String()
-    var titleArr = [String]()
+    var titleArray = [String]()
     var idArray = [String]()
-    var selectedTitle = String()
-    
-    var idCty = [NSManagedObject]()
-    var nameCity = [NSManagedObject]()
     var latitude = String()
     var longitude = String()
     var id: String = ""
     var city :String = ""
-    
     @IBOutlet var tableView: UITableView!
         
     override func viewDidLoad() {
@@ -34,20 +28,19 @@ class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "cityName"{
             let controller: ReceiveLatAndLongController = segue.sourceViewController as! ReceiveLatAndLongController
             titleName = controller.titleName
-            
             latitude = controller.latitude
             longitude = controller.longitude
             print(latitude + "&&" + longitude)
-            print(titleArr)
+            print(titleArray)
             
             let parser = XMLParserLocation(Url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text=%22\(latitude),\(longitude)%22%20and%20gflags=%22R%22")
            
-            let weather: Weather = parser.weather1
+            let weather: Weather = parser.weather
             id = weather.woeid
             city = weather.city
         
             idArray.append(id)
-            titleArr.append(city)
+            titleArray.append(city)
 
             }
         }
@@ -55,7 +48,6 @@ class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
-            
     }
     
     
@@ -66,13 +58,13 @@ class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.titleArr.count;
+        return self.titleArray.count;
 
     }
         
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.titleArr[indexPath.row]
+        cell.textLabel?.text = self.titleArray[indexPath.row]
         return cell
     }
         
@@ -85,9 +77,7 @@ class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let selectedRow = self.tableView.indexPathsForSelectedRows {
             let showViewController = segue.destinationViewController as! ShowViewController
             let indexPath = selectedRow[0]
-            showViewController.idCiry = idArray[indexPath.row]
+            showViewController.idCity = idArray[indexPath.row]
         }
-    
     }
-        
 }

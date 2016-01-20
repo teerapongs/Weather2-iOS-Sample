@@ -10,8 +10,7 @@ import UIKit
 
 class ReceiveLatAndLongController: UIViewController, UITextFieldDelegate {
     
-    var titleName:String = "title City"
-    
+    var titleName:String = ""
     var latitude = String()
     var longitude = String()
     var id: String = ""
@@ -43,7 +42,7 @@ class ReceiveLatAndLongController: UIViewController, UITextFieldDelegate {
         saveButton.enabled = false
     }
     
-    func checkValidLatAndLong(){
+    func checkValidLatAndLong() {
         latitude = latitudeTextField.text ?? ""
         longitude = longitudeTextField.text ?? ""
         saveButton.enabled = !latitude.isEmpty && !longitude.isEmpty
@@ -54,10 +53,4 @@ class ReceiveLatAndLongController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-  
-
-    
-
-
 }

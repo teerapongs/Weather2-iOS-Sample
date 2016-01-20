@@ -9,19 +9,15 @@
 import UIKit
 
 class ShowViewController: UIViewController {
-    
-    var idCiry: String = "12756339"
-  
+    var idCity: String = ""
     @IBOutlet weak var textField: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let parser = XMLParser(url: "https://weather.yahooapis.com/forecastrss?w=\(idCiry)&u=c")
-        
+        let parser = XMLParser(url: "https://weather.yahooapis.com/forecastrss?w=\(idCity)&u=c")
         let weather: Weather = parser.weather
         var string = String()
         string = "\(weather.title)\n\n"
-        
         string += "Current Conditions: \(weather.descriptionOfConditions), \(weather.temp)C\n\n"
         string += "forecast:\n"
         for forecast in weather.forecasts {
@@ -32,14 +28,11 @@ class ShowViewController: UIViewController {
             
             string += "\(day) - \(descriptionOfConditions). High: \(highTemp) Low: \(lowTemp)\n"
         }
-        
         textField.text = string
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E7779E411C4696B7004ED704 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7779E401C4696B7004ED704 /* AppDelegate.swift */; };
 		E7779E461C4696B7004ED704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7779E441C4696B7004ED704 /* Main.storyboard */; };
-		E7779E491C4696B7004ED704 /* Weather2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7779E471C4696B7004ED704 /* Weather2.xcdatamodeld */; };
 		E7779E4B1C4696B7004ED704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7779E4A1C4696B7004ED704 /* Assets.xcassets */; };
 		E7779E4E1C4696B7004ED704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7779E4C1C4696B7004ED704 /* LaunchScreen.storyboard */; };
 		E7779E591C4696B7004ED704 /* Weather2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7779E581C4696B7004ED704 /* Weather2Tests.swift */; };
@@ -43,7 +42,6 @@
 		E7779E3D1C4696B7004ED704 /* Weather2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7779E401C4696B7004ED704 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7779E451C4696B7004ED704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E7779E481C4696B7004ED704 /* Weather2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather2.xcdatamodel; sourceTree = "<group>"; };
 		E7779E4A1C4696B7004ED704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7779E4D1C4696B7004ED704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7779E4F1C4696B7004ED704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				E7779E4A1C4696B7004ED704 /* Assets.xcassets */,
 				E7779E4C1C4696B7004ED704 /* LaunchScreen.storyboard */,
 				E7779E4F1C4696B7004ED704 /* Info.plist */,
-				E7779E471C4696B7004ED704 /* Weather2.xcdatamodeld */,
 			);
 			path = Weather2;
 			sourceTree = "<group>";
@@ -277,7 +274,6 @@
 				E7779E7A1C4895BD004ED704 /* XMLParser.swift in Sources */,
 				E7779E761C4889D7004ED704 /* ShowViewController.swift in Sources */,
 				E7779E781C4895B6004ED704 /* XMLParserLocation.swift in Sources */,
-				E7779E491C4696B7004ED704 /* Weather2.xcdatamodeld in Sources */,
 				E7779E741C47FBFB004ED704 /* ReceiveLatAndLongController.swift in Sources */,
 				E7779E411C4696B7004ED704 /* AppDelegate.swift in Sources */,
 				E7779E721C47F8ED004ED704 /* MyTableViewController.swift in Sources */,
@@ -425,6 +421,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nu.ac.th.Weather2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -437,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nu.ac.th.Weather2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -528,19 +526,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E7779E471C4696B7004ED704 /* Weather2.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E7779E481C4696B7004ED704 /* Weather2.xcdatamodel */,
-			);
-			currentVersion = E7779E481C4696B7004ED704 /* Weather2.xcdatamodel */;
-			path = Weather2.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E7779E351C4696B7004ED704 /* Project object */;
 }

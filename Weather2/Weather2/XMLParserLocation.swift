@@ -10,45 +10,37 @@ import UIKit
 
 class XMLParserLocation: NSObject, NSXMLParserDelegate {
     
-    private var parser1 = NSXMLParser()
-    private var element1 = String()
-    var weather1 = Weather()
-
+    private var parser = NSXMLParser()
+    private var element = String()
+    var weather = Weather()
     
     init(Url: String) {
         super.init()
         let urlToSend: NSURL = NSURL(string: Url)!
-        parser1 = NSXMLParser(contentsOfURL: urlToSend)!
-        parser1.delegate = self
+        parser = NSXMLParser(contentsOfURL: urlToSend)!
+        parser.delegate = self
 
-        let success: Bool = parser1.parse()
+        let success: Bool = parser.parse()
         
         if success {
             print("parse success")
         }
-   
-        
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        
-        element1 = elementName
-  
+        element = elementName
         if elementName == "Result"{
-            weather1 = Weather()
+            weather = Weather()
         }
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if element1 == "city" {
-            weather1.city += string
-            print(weather1.city)
+        if element == "city" {
+            weather.city += string
         }
-        else if element1 == "woeid" {
-            weather1.woeid += string
-            print(weather1.woeid)
+        else if element == "woeid" {
+            weather.woeid += string
         }
-       
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -58,8 +50,6 @@ class XMLParserLocation: NSObject, NSXMLParserDelegate {
     }
     
     func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        print("parse failure! error: \(parseError)");
-        
+        print("parse failure! error: \(parseError)")
     }
-
 }

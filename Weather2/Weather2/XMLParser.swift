@@ -50,7 +50,6 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             
             weather.forecasts.append(forecast)
         }
-        
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
